@@ -1,0 +1,16 @@
+{
+  "profiles": {
+    "HCC2RestClient": {
+      "commandName": "Project",
+      "launchBrowser": false,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "SDK2_API_URL": "http://173.0.0.41:7071/api/v1",
+        "SDK2_CALLBACK_URL": "http://173.0.4.2:8100/webhook/v1",
+        "SDK2_USE_WEBHOOKS": "0",
+        "LOG_LEVEL": "Debug"
+      },
+      "dotnetRunMessages": true
+    }
+  }
+}

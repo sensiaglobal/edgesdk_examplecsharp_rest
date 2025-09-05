@@ -1,0 +1,32 @@
+services:
+  coursenetapp:
+    image: coursenetapp:0.0.0
+    container_name: coursenetapp
+    read_only: true
+    labels:
+      com.sensiaglobal.image.config_manager_reg_name: coursenetapp
+    restart: on-failure
+    networks:
+      - network1
+    ports:
+      - "8100:8100"
+    environment:
+      SDK2_API_URL: "http://173.0.0.41:7071/api/v1"
+      SDK2_CALLBACK_URL: "http://173.0.4.2:8100/webhook/v1"
+      SDK2_USE_WEBHOOKS: "true"
+      LOG_LEVEL: "Info"
+    tmpfs:
+      - /tmp:uid=5678,gid=5678
+    volumes:
+      - coursenetapp_config_vol:/app/config
+      - coursenetapp_data_vol:/app/data
+networks:
+  network1:
+    name: edgenet
+    external: true
+
+volumes:
+  coursenetapp_config_vol:
+    name: coursenetapp_config_vol
+  coursenetapp_data_vol:
+    name: coursenetapp_data_vol
